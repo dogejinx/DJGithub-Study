@@ -4,6 +4,7 @@ PODS:
   - AMapSearch (3.3.0)
   - iCarousel (1.8.2)
   - Kingfisher (2.3.1)
+  - LTMorphingLabel (0.2.0)
   - SwiftyJSON (2.3.2)
   - YYKit (1.0.5):
     - YYKit/no-arc (= 1.0.5)
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - AMapSearch (~> 3.3.0)
   - iCarousel (~> 1.8.2)
   - Kingfisher (~> 2.3.1)
+  - LTMorphingLabel (~> 0.2.0)
   - SwiftyJSON (~> 2.3.2)
   - YYKit (~> 1.0.5)
 
@@ -24,6 +26,7 @@ SPEC CHECKSUMS:
   AMapSearch: cff4faf59c007f7d1f2bae2d7170c3912783981a
   iCarousel: 67c8a43da5a46795b56aadfc96cd36a16f6149b2
   Kingfisher: 6d3fbada4829cbc7b89e883e8218c28afeb64e42
+  LTMorphingLabel: 490aa8e079f9247c7f3130f7d4b1be1d66677377
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   YYKit: f2654fe525de2283648db957bddb37ddd8e06549
 

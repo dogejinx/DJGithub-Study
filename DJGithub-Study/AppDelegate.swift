@@ -12,10 +12,24 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var rootViewController: UINavigationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let root = ViewController()
+        let nav = DJExampleNavController(navigationBarClass: DJExampleNavBar.self, toolbarClass: UIToolbar.self)
+        if nav.respondsToSelector(Selector("setAutomaticallyAdjustsScrollViewInsets:")) {
+            nav.automaticallyAdjustsScrollViewInsets = false
+        }
+        nav.pushViewController(root, animated: false)
+        
+        self.rootViewController = nav
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = self.rootViewController
+        self.window?.backgroundColor = UIColor.grayColor()
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 
@@ -42,5 +56,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+
+class DJExampleNavBar: UINavigationBar {
+    
+    var previousSize: CGSize? = CGSizeZero
+    
+    override func sizeThatFits(size: CGSize) -> CGSize {
+        var aSize = size
+        aSize = super.sizeThatFits(aSize)
+        if UIApplication.sharedApplication().statusBarHidden {
+            aSize.height = 64
+        }
+        return aSize
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if !CGSizeEqualToSize(self.bounds.size, previousSize!) {
+            previousSize = self.bounds.size
+            self.layer.removeAllAnimations()
+            self.layer.sublayers?.forEach({ sublayers in
+                sublayers.removeAllAnimations()
+            })
+        }
+        
+    }
+    
+    
+}
+
+class DJExampleNavController: UINavigationController {
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return .Portrait
+    }
+    
+    override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
+        return .Portrait
+    }
+    
+    
 }
 

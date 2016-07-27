@@ -8,18 +8,56 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+let kCellIdentifier = "UITableViewCell"
 
+class ViewController: UITableViewController {
+    
+    var demoTitleList: [String] = ["LTMorphingLabel"]
+    var demoViewControllerList: [String] = ["LTMorphingLabelDemoViewController"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.title = "DJGithub Study"
+        self.navigationController?.navigationBarHidden = false
+        self.tableView.reloadData()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
+extension ViewController {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        
+        let vc = LTMorphingLabelDemoViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+    }
+}
+
+extension ViewController {
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        return 1
+        
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return demoTitleList.count
+        
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        var cell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier)
+        if cell == nil {
+            cell = UITableViewCell(style: .Default, reuseIdentifier: kCellIdentifier)
+        }
+        cell!.textLabel!.text = demoTitleList[indexPath.row]
+        return cell!
+        
+    }
+}
