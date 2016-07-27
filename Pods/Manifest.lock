@@ -1,0 +1,30 @@
+PODS:
+  - Alamofire (3.3.1)
+  - AMapLocation (1.2.2)
+  - AMapSearch (3.3.0)
+  - iCarousel (1.8.2)
+  - Kingfisher (2.3.1)
+  - SwiftyJSON (2.3.2)
+  - YYKit (1.0.5):
+    - YYKit/no-arc (= 1.0.5)
+  - YYKit/no-arc (1.0.5)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.3.1)
+  - AMapLocation (~> 1.2.2)
+  - AMapSearch (~> 3.3.0)
+  - iCarousel (~> 1.8.2)
+  - Kingfisher (~> 2.3.1)
+  - SwiftyJSON (~> 2.3.2)
+  - YYKit (~> 1.0.5)
+
+SPEC CHECKSUMS:
+  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  AMapLocation: 5412fbf0385716d4d481e39a95929057cddc093f
+  AMapSearch: cff4faf59c007f7d1f2bae2d7170c3912783981a
+  iCarousel: 67c8a43da5a46795b56aadfc96cd36a16f6149b2
+  Kingfisher: 6d3fbada4829cbc7b89e883e8218c28afeb64e42
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  YYKit: f2654fe525de2283648db957bddb37ddd8e06549
+
+COCOAPODS: 0.39.0
