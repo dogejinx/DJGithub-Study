@@ -8,9 +8,10 @@
 
 import UIKit
 import LTMorphingLabel
+
 class LTMorphingLabelDemoViewController: UIViewController {
     
-    var morphingLabel: LTMorphingLabel!
+    var morphingLabel: DJAutoshrinkMorphingLabel!
     var idx = 0
     let textArray: [String] = ["START", "2STARS", "AIR2", "TITLE", "BILIBILI.KINGPOWER"]
     
@@ -39,12 +40,13 @@ class LTMorphingLabelDemoViewController: UIViewController {
     
     func addLabel() {
         
-        let label = LTMorphingLabel()
+        let label = DJAutoshrinkMorphingLabel()
         morphingLabel = label
         label.frame = CGRectMake(0, 0, 100, 40)
         label.center = CGPointMake(UIScreen.mainScreen().bounds.width/2, 200)
         
         label.text = "START"
+        label.adjustsFontSizeToFitWidth = true
         label.font = UIFont.systemFontOfSize(20)
         label.textColor = UIColor.blackColor()
         label.textAlignment = .Center
