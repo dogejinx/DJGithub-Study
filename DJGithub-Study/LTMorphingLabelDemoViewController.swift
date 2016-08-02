@@ -13,7 +13,7 @@ class LTMorphingLabelDemoViewController: UIViewController {
     
     var morphingLabel: DJAutoshrinkMorphingLabel!
     var idx = 0
-    let textArray: [String] = ["START", "2STARS", "AIR2", "TITLE", "BILIBILI.KINGPOWER"]
+    let textArray: [String] = ["START", "2STARS", "AIR2", "TITLE", "LIVE.BILIBILI.COM", "BILIBILI.COM"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,14 +59,14 @@ class LTMorphingLabelDemoViewController: UIViewController {
     
     func randomText() {
         
-        let index = randomInRange(0..<5)
+        let index = randomInRange(0..<textArray.count)
         morphingLabel.text = textArray[index]
         
     }
     
     func nextText() {
         
-        idx = (idx+1)%5
+        idx = (idx+1)%textArray.count
         morphingLabel.text = textArray[idx]
         
     }

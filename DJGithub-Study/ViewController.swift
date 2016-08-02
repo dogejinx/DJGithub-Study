@@ -12,8 +12,8 @@ let kCellIdentifier = "UITableViewCell"
 
 class ViewController: UITableViewController {
     
-    var demoTitleList: [String] = ["LTMorphingLabel", "DJTitleNavigationBarDemo"]
-    var demoViewControllerList: [String] = ["LTMorphingLabelDemoViewController", "DJTitleNavigationBarDemo"]
+    var demoTitleList: [String] = ["LTMorphingLabel", "DJTitleNavigationBarDemo", "DJTitleNavigationBarDemoPro"]
+    var demoViewControllerList: [String] = ["LTMorphingLabelDemoViewController", "DJTitleNavigationBarViewController", "DJTitleNavigationBarProViewController"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +32,13 @@ extension ViewController {
             self.navigationController?.pushViewController(vc, animated: true)
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
-        else {
+        else if indexPath.row == 1 {
             let vc = DJTitleNavigationBarViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+        else {
+            let vc = DJTitleNavigationBarProViewController()
             self.navigationController?.pushViewController(vc, animated: true)
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }

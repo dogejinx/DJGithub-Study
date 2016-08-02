@@ -8,11 +8,13 @@
 
 import UIKit
 
-let titleH: CGFloat = 44
+let titleH: CGFloat = 36
+let titleW: CGFloat = 100
 let navBarH: CGFloat = 64
 let maxTitleScale: CGFloat = 1.3
 let kDJScreenW = UIScreen.mainScreen().bounds.width
 let kDJScreenH = UIScreen.mainScreen().bounds.height
+let kDJSpace = (kDJScreenW - titleW) / 2.0
 
 class DJTitleNavigationBarViewController: UIViewController {
 
@@ -64,29 +66,41 @@ class DJTitleNavigationBarViewController: UIViewController {
     
     func addChildViewController() {
         
-        let vc = UIViewController()
+        let newRect = CGRectMake(0, navBarH + titleH, kDJScreenW, kDJScreenH - (navBarH + titleH))
+        
+        let vc = DJWebViewController()
         vc.title = "2016.01"
+        vc.urlStr = "https://www.baidu.com"
         vc.view.backgroundColor = UIColor.redColor()
+        vc.view.frame = CGRectMake(0, navBarH + titleH, kDJScreenW, kDJScreenH - (navBarH + titleH))
         self.addChildViewController(vc)
         
-        let vc1 = UIViewController()
+        let vc1 = DJWebViewController()
         vc1.title = "2016.02"
+        vc1.urlStr = "https://www.zhihu.com"
         vc1.view.backgroundColor = UIColor.orangeColor()
+        vc1.view.frame = CGRectMake(0, navBarH + titleH, kDJScreenW, kDJScreenH - (navBarH + titleH))
         self.addChildViewController(vc1)
         
-        let vc2 = UIViewController()
+        let vc2 = DJWebViewController()
         vc2.title = "2016.03"
+        vc2.urlStr = "https://www.bilibili.com"
         vc2.view.backgroundColor = UIColor.yellowColor()
+        vc2.view.frame = CGRectMake(0, navBarH + titleH, kDJScreenW, kDJScreenH - (navBarH + titleH))
         self.addChildViewController(vc2)
         
-        let vc3 = UIViewController()
+        let vc3 = DJWebViewController()
         vc3.title = "2016.04"
+        vc3.urlStr = "https://music.163.com"
         vc3.view.backgroundColor = UIColor.greenColor()
+        vc3.view.frame = CGRectMake(0, navBarH + titleH, kDJScreenW, kDJScreenH - (navBarH + titleH))
         self.addChildViewController(vc3)
         
-        let vc4 = UIViewController()
+        let vc4 = DJWebViewController()
         vc4.title = "2016.05"
+        vc4.urlStr = "https://www.weibo.com"
         vc4.view.backgroundColor = UIColor.lightGrayColor()
+        vc4.view.frame = CGRectMake(0, navBarH + titleH, kDJScreenW, kDJScreenH - (navBarH + titleH))
         self.addChildViewController(vc4)
         
     }
@@ -95,30 +109,31 @@ class DJTitleNavigationBarViewController: UIViewController {
         
         let count = self.childViewControllers.count
         var x: CGFloat = 0
-        let w: CGFloat = 100
+        let w: CGFloat = titleW
         let h = titleH
-        
+        var button: UIButton?
         for (i, vc) in self.childViewControllers.enumerate() {
-           x = CGFloat(i) * w
-        let rect = CGRectMake(x, 0, w, h)
+            x = CGFloat(i) * w + kDJSpace
+            let rect = CGRectMake(x, 0, w, h)
             let btn = UIButton(frame: rect)
             btn.tag = i
             btn.setTitle(vc.title, forState: .Normal)
             btn.setTitleColor(UIColor.blackColor(), forState: .Normal)
             btn.titleLabel?.font = UIFont.systemFontOfSize(15)
+            btn.backgroundColor = UIColor.whiteColor()
             btn.addTarget(self, action: #selector(DJTitleNavigationBarViewController.click(_:)), forControlEvents: .TouchDown)
             
             self.titleButtonList.append(btn)
             self.titleScrollView?.addSubview(btn)
             
-            if i == 0 {
-                self.click(btn)
+            if i == count - 1 {
+                button = btn
             }
             
         }
-        titleScrollView?.contentSize = CGSizeMake(CGFloat(count) * w, 0)
+        titleScrollView?.contentSize = CGSizeMake(CGFloat(count) * w + 2 * kDJSpace, 0)
         titleScrollView?.showsHorizontalScrollIndicator = false
-        
+        self.click(button!)
     }
     
     func click(btn: UIButton) {
@@ -136,9 +151,9 @@ class DJTitleNavigationBarViewController: UIViewController {
     func selectedTitleBtn(btn: UIButton) {
         
         selectedTitleButton?.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        selectedTitleButton?.transform = CGAffineTransformMakeScale(maxTitleScale, maxTitleScale)
+        selectedTitleButton?.transform = CGAffineTransformIdentity
         
-        btn.setTitleColor(UIColor.redColor(), forState: .Normal)
+        btn.setTitleColor(UIColor(red: 89/255.0, green: 83/255.0, blue: 193/255.0, alpha: 1), forState: .Normal)
         btn.transform = CGAffineTransformMakeScale(maxTitleScale, maxTitleScale)
         
         selectedTitleButton = btn
@@ -208,10 +223,9 @@ extension DJTitleNavigationBarViewController: UIScrollViewDelegate {
         let transScale = maxTitleScale - 1
         leftButton.transform = CGAffineTransformMakeScale(scaleL * transScale + 1, scaleL * transScale + 1)
         rightButton?.transform = CGAffineTransformMakeScale(scaleR * transScale + 1, scaleR * transScale + 1)
-        
-        let rightColor = UIColor(red: scaleR, green: 0, blue: 0, alpha: 1)
-        let leftColor = UIColor(red: scaleL, green: 0, blue: 0, alpha: 1)
-        
+        print("\(leftIndex):\(scaleL), \(rightIndex):\(scaleR)")
+        let rightColor = UIColor(red: 89/255.0 * scaleR, green: 83/255.0 * scaleR, blue: 193/255.0 * scaleR, alpha: 1)
+        let leftColor = UIColor(red: 89/255.0 * scaleL, green:83/255.0 * scaleL, blue:193/255.0 * scaleL, alpha: 1)
         leftButton.setTitleColor(leftColor, forState: .Normal)
         rightButton?.setTitleColor(rightColor, forState: .Normal)
         
