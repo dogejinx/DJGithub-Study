@@ -8,27 +8,64 @@
 
 import UIKit
 
-let titleH: CGFloat = 36
-let titleW: CGFloat = 100
-let navBarH: CGFloat = 64
-let maxTitleScale: CGFloat = 1.3
-let kDJScreenW = UIScreen.mainScreen().bounds.width
-let kDJScreenH = UIScreen.mainScreen().bounds.height
-let kDJSpace = (kDJScreenW - titleW) / 2.0
+struct WebPage {
+    
+    var pageTitle: String?
+    var urlStr: String?
+    
+    init(title: String, url: String) {
+        self.pageTitle = title
+        self.urlStr = url
+    }
+    
+}
 
 class DJTitleNavigationBarViewController: UIViewController {
 
-    // MARK: Value
+    // MARK: - Value
     var titleScrollView: UIScrollView?
     var contentScrollView: UIScrollView?
     var selectedTitleButton: UIButton?
     var titleButtonList: [UIButton] = []
+    var webPageList: [WebPage] = []
+    
+    var titleH: CGFloat = 36.0
+    var titleW: CGFloat = 100.0
+    let navBarH: CGFloat = 64
+    let kDJScreenW = UIScreen.mainScreen().bounds.width
+    let kDJScreenH = UIScreen.mainScreen().bounds.height
+    var kDJSpace: CGFloat {
+        get {
+            return (kDJScreenW - titleW) / 2.0
+        }
+    }
+    var defaultTitleColor = UIColor(red: 102/255.0, green: 102/255.0, blue: 102/255.0, alpha: 1)
+    var selectTitleColor = UIColor(red: 89/255.0, green: 83/255.0, blue: 193/255.0, alpha: 1)
     
     
-    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = UIColor.lightGrayColor()
+        
+        
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        initUI()
+    }
+    
+    
+    // MARK: - Method
+    func initUI() {
+        
+        if webPageList.count == 0 {
+            return
+        }
+        
         self.setupTitleScrollView()
         self.setupContentScrollView()
         self.addChildViewController()
@@ -56,7 +93,7 @@ class DJTitleNavigationBarViewController: UIViewController {
     func setupContentScrollView() {
         
         let y = CGRectGetMaxY((titleScrollView?.frame)!)
-        let rect = CGRectMake(0, y, kDJScreenW, kDJScreenH - navBarH)
+        let rect = CGRectMake(0, y, kDJScreenW, kDJScreenH - y)
         
         contentScrollView = UIScrollView(frame: rect)
         contentScrollView?.backgroundColor = UIColor.whiteColor()
@@ -66,22 +103,10 @@ class DJTitleNavigationBarViewController: UIViewController {
     
     func addChildViewController() {
         
-        let newRect = CGRectMake(0, navBarH + titleH, kDJScreenW, kDJScreenH - (navBarH + titleH))
-
-        let vc  = DJWebViewController(frame: newRect, name: "2016.01", url: "https://www.baidu.com", backgroundColor: UIColor.redColor())
-        self.addChildViewController(vc)
-        
-        let vc1 = DJWebViewController(frame: newRect, name: "2016.02", url: "https://www.zhihu.com", backgroundColor: UIColor.orangeColor())
-        self.addChildViewController(vc1)
-        
-        let vc2 = DJWebViewController(frame: newRect, name: "2016.03", url: "https://www.bilibili.com", backgroundColor: UIColor.yellowColor())
-        self.addChildViewController(vc2)
-        
-        let vc3 = DJWebViewController(frame: newRect, name: "2016.04", url: "https://music.163.com", backgroundColor: UIColor.greenColor())
-        self.addChildViewController(vc3)
-        
-        let vc4 = DJWebViewController(frame: newRect, name: "2016.05", url: "https://www.weibo.com", backgroundColor: UIColor.lightGrayColor())
-        self.addChildViewController(vc4)
+        for item in webPageList {
+            let vc  = DJWebViewController(name: item.pageTitle!, url: item.urlStr!)
+            self.addChildViewController(vc)
+        }
         
     }
     
@@ -97,14 +122,14 @@ class DJTitleNavigationBarViewController: UIViewController {
             let rect = CGRectMake(x, 0, w, h)
             let btn = DJTitleButton(frame: rect)
             if i == 0 {
-                btn.lineType = 0
+                btn.lineType = .Left
             }
-            else {
-                btn.lineType = 2
+            else if i == count - 1 {
+                btn.lineType = .Right
             }
             btn.tag = i
             btn.setTitle(vc.title, forState: .Normal)
-            btn.setTitleColor(UIColor.blackColor(), forState: .Normal)
+            btn.setTitleColor(defaultTitleColor, forState: .Normal)
             btn.titleLabel?.font = UIFont.systemFontOfSize(15)
             btn.backgroundColor = UIColor.whiteColor()
             btn.addTarget(self, action: #selector(DJTitleNavigationBarViewController.click(_:)), forControlEvents: .TouchDown)
@@ -136,11 +161,9 @@ class DJTitleNavigationBarViewController: UIViewController {
     
     func selectedTitleBtn(btn: UIButton) {
         
-        selectedTitleButton?.setTitleColor(UIColor.blackColor(), forState: .Normal)
-//        selectedTitleButton?.transform = CGAffineTransformIdentity
+        selectedTitleButton?.setTitleColor(defaultTitleColor, forState: .Normal)
         
-        btn.setTitleColor(UIColor(red: 89/255.0, green: 83/255.0, blue: 193/255.0, alpha: 1), forState: .Normal)
-//        btn.transform = CGAffineTransformMakeScale(maxTitleScale, maxTitleScale)
+        btn.setTitleColor(selectTitleColor, forState: .Normal)
         
         selectedTitleButton = btn
         self.setupTitleCenter(btn)
@@ -179,8 +202,10 @@ class DJTitleNavigationBarViewController: UIViewController {
 }
 
 
+// MARK: -
 extension DJTitleNavigationBarViewController: UIScrollViewDelegate {
     
+    // MARK: - Delegate
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         
         let i: Int = Int((self.contentScrollView?.contentOffset.x)! / kDJScreenW)
@@ -205,16 +230,36 @@ extension DJTitleNavigationBarViewController: UIScrollViewDelegate {
         
         let scaleL = 1 - scaleR
         
+        let fColor = selectTitleColor
+        let sColor = defaultTitleColor
         
-//        let transScale = maxTitleScale - 1
-//        leftButton.transform = CGAffineTransformMakeScale(scaleL * transScale + 1, scaleL * transScale + 1)
-//        rightButton?.transform = CGAffineTransformMakeScale(scaleR * transScale + 1, scaleR * transScale + 1)
-        print("\(leftIndex):\(scaleL), \(rightIndex):\(scaleR)")
-        let rightColor = UIColor(red: 89/255.0 * scaleR, green: 83/255.0 * scaleR, blue: 193/255.0 * scaleR, alpha: 1)
-        let leftColor = UIColor(red: 89/255.0 * scaleL, green:83/255.0 * scaleL, blue:193/255.0 * scaleL, alpha: 1)
+        let rightColor = gradientRGBColor(fColor, secondColor: sColor, scale: scaleR)
+        let leftColor = gradientRGBColor(fColor, secondColor: sColor, scale: scaleL)
+        
         leftButton.setTitleColor(leftColor, forState: .Normal)
         rightButton?.setTitleColor(rightColor, forState: .Normal)
         
+        
+    }
+    
+    func gradientRGBColor(firstColor: UIColor, secondColor: UIColor, scale: CGFloat) -> UIColor {
+        
+        let leftComponents = CGColorGetComponents(firstColor.CGColor)
+        let rightComponents = CGColorGetComponents(secondColor.CGColor)
+        
+        let l_R = leftComponents[0]
+        let l_G = leftComponents[1]
+        let l_B = leftComponents[2]
+        
+        let r_R = rightComponents[0]
+        let r_G = rightComponents[1]
+        let r_B = rightComponents[2]
+        
+        let final_R = (l_R - r_R) * scale + r_R
+        let final_G = (l_G - r_G) * scale + r_G
+        let final_B = (l_B - r_B) * scale + r_B
+        
+        return UIColor(red: final_R, green: final_G, blue: final_B, alpha: 1)
     }
     
     

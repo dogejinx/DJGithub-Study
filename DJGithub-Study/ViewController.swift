@@ -28,19 +28,29 @@ extension ViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if indexPath.row == 0 {
+            
             let vc = LTMorphingLabelDemoViewController()
             self.navigationController?.pushViewController(vc, animated: true)
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            
         }
         else if indexPath.row == 1 {
+            
             let vc = DJTitleNavigationBarViewController()
+            vc.webPageList = [WebPage(title: "2016.01", url: "https://www.bilibili.com"), WebPage(title: "2016.02", url: "https://www.zhihu.com"), WebPage(title: "2016.03", url: "https://www.weibo.com")]
+            
             self.navigationController?.pushViewController(vc, animated: true)
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            
         }
         else {
+            
             let vc = DJTitleNavigationBarProViewController()
+//            vc.webPageList = [WebPage(title: "2016.01", url: "https://www.bilibili.com"), WebPage(title: "2016.02", url: "https://www.zhihu.com"), WebPage(title: "2016.03", url: "http://www.dogejinx.com")]
+            
             self.navigationController?.pushViewController(vc, animated: true)
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            
         }
         
     }

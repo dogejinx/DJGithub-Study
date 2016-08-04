@@ -8,16 +8,24 @@
 
 import UIKit
 
+enum DJLineType {
+    
+    case Left
+    case Right
+    case Both
+    
+}
+
 class DJTitleButton: UIButton {
 
-    var lineType: Int
+    var lineType: DJLineType
     
     override init(frame: CGRect) {
-        lineType = 1
+        lineType = .Both
         super.init(frame: frame)
     }
     
-    init(frame: CGRect, lineType: Int) {
+    init(frame: CGRect, lineType: DJLineType) {
         self.lineType = lineType
         super.init(frame: frame)
     }
@@ -29,34 +37,33 @@ class DJTitleButton: UIButton {
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
         
-        
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
+        CGContextSetStrokeColorWithColor(context, UIColor(red: 153/255.0, green: 153/255.0, blue: 153/255.0, alpha: 1).CGColor)
         
         // Draw them with a 2.0 stroke width so they are a bit more visible.
-        CGContextSetLineWidth(context, 2.0)
+        CGContextSetLineWidth(context, 1.0)
         
-        if self.lineType == 0 {
+        if self.lineType == .Left {
+            
+            CGContextMoveToPoint(context, 100.0 - 16.0, 18.0) //start at this point
+            
+            CGContextAddLineToPoint(context, 100.0, 18.0) //draw to this point
+            
+        }
+        else if self.lineType == .Right {
             
             CGContextMoveToPoint(context, 0.0, 18.0) //start at this point
             
-            CGContextAddLineToPoint(context, 20.0, 18.0) //draw to this point
-            
-        }
-        else if self.lineType == 2 {
-            
-            CGContextMoveToPoint(context, 80.0, 18.0) //start at this point
-            
-            CGContextAddLineToPoint(context, 100.0, 18.0) //draw to this point
+            CGContextAddLineToPoint(context, 16.0, 18.0) //draw to this point
             
         }
         else {
             
             CGContextMoveToPoint(context, 0.0, 18.0) //start at this point
             
-            CGContextAddLineToPoint(context, 20.0, 18.0) //draw to this point
+            CGContextAddLineToPoint(context, 16.0, 18.0) //draw to this point
             
-            CGContextMoveToPoint(context, 80.0, 18.0) //start at this point
+            CGContextMoveToPoint(context, 100.0 - 16.0, 18.0) //start at this point
             
             CGContextAddLineToPoint(context, 100.0, 18.0) //draw to this point
             

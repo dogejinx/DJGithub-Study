@@ -8,14 +8,13 @@
 
 import UIKit
 
-class DJTitleNavigationBarProViewController: UIViewController {
+class DJTitleNavigationBarProViewController: DJTitleNavigationBarViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
-    
 
 }

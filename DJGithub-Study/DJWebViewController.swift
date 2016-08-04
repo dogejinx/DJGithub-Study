@@ -17,13 +17,21 @@ class DJWebViewController: UIViewController {
         super.init(nibName:nil, bundle:nil)
     }
     
-    init(frame: CGRect, name: String, url: String, backgroundColor: UIColor) {
+    init(name: String, url: String) {
         
         self.urlStr = url
         super.init(nibName: nil, bundle: nil)
-        self.view.frame = frame
+        self.title = name
+        
+    }
+    
+    init(name: String, url: String, backgroundColor: UIColor) {
+        
+        self.urlStr = url
+        super.init(nibName: nil, bundle: nil)
         self.title = name
         self.view.backgroundColor = backgroundColor
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -32,13 +40,14 @@ class DJWebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         
+        self.view.backgroundColor = UIColor.whiteColor()
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         webView = UIWebView(frame: self.view.bounds)
+        webView.delegate = self
         self.view.addSubview(webView)
         
         if let urlStr = urlStr {
@@ -54,11 +63,11 @@ class DJWebViewController: UIViewController {
 extension DJWebViewController: UIWebViewDelegate {
     
     func webViewDidStartLoad(webView: UIWebView) {
-        print("DidStartLoad.\(urlStr)")
+        
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        
+        print("DidFinishLoad.\(urlStr)")
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
