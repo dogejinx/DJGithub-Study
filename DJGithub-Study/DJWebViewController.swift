@@ -13,13 +13,17 @@ class DJWebViewController: UIViewController {
     var webView: UIWebView!
     var urlStr: String?
 
+    init() {
+        super.init(nibName:nil, bundle:nil)
+    }
     
-    required init(frame: CGRect, name: String, url: String) {
+    init(frame: CGRect, name: String, url: String, backgroundColor: UIColor) {
         
         self.urlStr = url
-        super.init(nibName: "UIViewController", bundle: nil)
+        super.init(nibName: nil, bundle: nil)
         self.view.frame = frame
         self.title = name
+        self.view.backgroundColor = backgroundColor
     }
     
     required init?(coder aDecoder: NSCoder) {
