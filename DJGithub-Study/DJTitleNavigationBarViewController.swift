@@ -121,12 +121,16 @@ class DJTitleNavigationBarViewController: UIViewController {
             x = CGFloat(i) * w + kDJSpace
             let rect = CGRectMake(x, 0, w, h)
             let btn = DJTitleButton(frame: rect)
-            if i == 0 {
+            if i == 0 && count != 1 {
                 btn.lineType = .Left
             }
-            else if i == count - 1 {
+            else if i == count - 1 && count != 1 {
                 btn.lineType = .Right
             }
+            else if i > 0 && i < count - 1 {
+                btn.lineType = .Both
+            }
+            
             btn.tag = i
             btn.setTitle(vc.title, forState: .Normal)
             btn.setTitleColor(defaultTitleColor, forState: .Normal)

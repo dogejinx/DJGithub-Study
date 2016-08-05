@@ -13,7 +13,7 @@ enum DJLineType {
     case Left
     case Right
     case Both
-    
+    case None
 }
 
 class DJTitleButton: UIButton {
@@ -21,7 +21,7 @@ class DJTitleButton: UIButton {
     var lineType: DJLineType
     
     override init(frame: CGRect) {
-        lineType = .Both
+        lineType = .None
         super.init(frame: frame)
     }
     
@@ -57,7 +57,7 @@ class DJTitleButton: UIButton {
             CGContextAddLineToPoint(context, 16.0, 18.0) //draw to this point
             
         }
-        else {
+        else if self.lineType == .Both {
             
             CGContextMoveToPoint(context, 0.0, 18.0) //start at this point
             
