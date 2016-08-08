@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10117"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DJAdMobViewController" customModule="DJGithub_Study" customModuleProvider="target">
+            <connections>
+                <outlet property="bannerView" destination="mBv-nF-ZZT" id="moR-Uh-r69"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBv-nF-ZZT" customClass="GADBannerView">
+                    <rect key="frame" x="140" y="550" width="320" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="4nd-bh-AYc"/>
+                        <constraint firstAttribute="height" constant="50" id="7ex-gS-fN1"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="mBv-nF-ZZT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="AOR-qB-ZCP"/>
+                <constraint firstAttribute="bottom" secondItem="mBv-nF-ZZT" secondAttribute="bottom" id="kfK-Q3-NFE"/>
+            </constraints>
+            <point key="canvasLocation" x="370" y="323"/>
+        </view>
+    </objects>
+</document>
