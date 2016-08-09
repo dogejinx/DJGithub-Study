@@ -45,6 +45,10 @@ class DJTitleButton: UIButton {
         
         if self.lineType == .Left {
             
+            CGContextMoveToPoint(context, 0.0, 18.0) //start at this point
+            
+            CGContextAddLineToPoint(context, 16.0, 18.0) //draw to this point
+            
             CGContextMoveToPoint(context, 100.0 - 16.0, 18.0) //start at this point
             
             CGContextAddLineToPoint(context, 100.0, 18.0) //draw to this point

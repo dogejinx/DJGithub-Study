@@ -20,6 +20,7 @@
 		76372BEE1D48B73700F99E9C /* LTMorphingLabelDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76372BEC1D48B73700F99E9C /* LTMorphingLabelDemoViewController.swift */; };
 		76372BEF1D48B73700F99E9C /* LTMorphingLabelDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76372BED1D48B73700F99E9C /* LTMorphingLabelDemoViewController.xib */; };
 		764BA8C81D5066A70045A80B /* DJWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764BA8C71D5066A70045A80B /* DJWebViewController.swift */; };
+		7690EA511D59E12300DC3CF5 /* DJSpaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7690EA501D59E12300DC3CF5 /* DJSpaceView.swift */; };
 		76A480C81D4F32560025E64F /* DJTitleNavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A480C71D4F32560025E64F /* DJTitleNavigationBarViewController.swift */; };
 		76FAE1A21D520F21002661C0 /* DJTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FAE1A11D520F21002661C0 /* DJTitleButton.swift */; };
 		76FC83481D4B058200822EEF /* DJAutoshrinkMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC83471D4B058200822EEF /* DJAutoshrinkMorphingLabel.swift */; };
@@ -65,6 +66,7 @@
 		76372BEC1D48B73700F99E9C /* LTMorphingLabelDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTMorphingLabelDemoViewController.swift; sourceTree = "<group>"; };
 		76372BED1D48B73700F99E9C /* LTMorphingLabelDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTMorphingLabelDemoViewController.xib; sourceTree = "<group>"; };
 		764BA8C71D5066A70045A80B /* DJWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJWebViewController.swift; sourceTree = "<group>"; };
+		7690EA501D59E12300DC3CF5 /* DJSpaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJSpaceView.swift; sourceTree = "<group>"; };
 		76A480C71D4F32560025E64F /* DJTitleNavigationBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJTitleNavigationBarViewController.swift; sourceTree = "<group>"; };
 		76FAE1A11D520F21002661C0 /* DJTitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJTitleButton.swift; sourceTree = "<group>"; };
 		76FC83471D4B058200822EEF /* DJAutoshrinkMorphingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJAutoshrinkMorphingLabel.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				76A480C71D4F32560025E64F /* DJTitleNavigationBarViewController.swift */,
 				764BA8C71D5066A70045A80B /* DJWebViewController.swift */,
 				76FAE1A11D520F21002661C0 /* DJTitleButton.swift */,
+				7690EA501D59E12300DC3CF5 /* DJSpaceView.swift */,
 			);
 			name = DJTitleNavigationBarDemo;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				76372BC11D48529500F99E9C /* ViewController.swift in Sources */,
 				76A480C81D4F32560025E64F /* DJTitleNavigationBarViewController.swift in Sources */,
 				76FAE1A21D520F21002661C0 /* DJTitleButton.swift in Sources */,
+				7690EA511D59E12300DC3CF5 /* DJSpaceView.swift in Sources */,
 				7618C0371D588CBA009EC1FA /* DJAdMobViewController.swift in Sources */,
 				764BA8C81D5066A70045A80B /* DJWebViewController.swift in Sources */,
 				76372BEE1D48B73700F99E9C /* LTMorphingLabelDemoViewController.swift in Sources */,

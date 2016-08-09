@@ -85,6 +85,8 @@ class DJTitleNavigationBarViewController: UIViewController {
         let rect = CGRectMake(0, y, kDJScreenW, titleH)
         
         titleScrollView = UIScrollView(frame: rect)
+        titleScrollView?.tag = 1
+        titleScrollView?.delegate = self
         titleScrollView?.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(titleScrollView!)
         
@@ -96,6 +98,7 @@ class DJTitleNavigationBarViewController: UIViewController {
         let rect = CGRectMake(0, y, kDJScreenW, kDJScreenH - y)
         
         contentScrollView = UIScrollView(frame: rect)
+        contentScrollView?.tag = 2
         contentScrollView?.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(contentScrollView!)
         
@@ -116,6 +119,11 @@ class DJTitleNavigationBarViewController: UIViewController {
         var x: CGFloat = 0
         let w: CGFloat = titleW
         let h = titleH
+        
+        let lineView = DJSpaceView(frame: CGRectMake(0, 0, kDJSpace, h))
+        lineView.backgroundColor = UIColor.whiteColor()
+        self.titleScrollView?.addSubview(lineView)
+        
         var button: UIButton?
         for (i, vc) in self.childViewControllers.enumerate() {
             x = CGFloat(i) * w + kDJSpace
@@ -203,48 +211,6 @@ class DJTitleNavigationBarViewController: UIViewController {
         self.titleScrollView?.setContentOffset(CGPointMake(offset, 0), animated: true)
         
     }
-}
-
-
-// MARK: -
-extension DJTitleNavigationBarViewController: UIScrollViewDelegate {
-    
-    // MARK: - Delegate
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        
-        let i: Int = Int((self.contentScrollView?.contentOffset.x)! / kDJScreenW)
-        self.selectedTitleBtn(self.titleButtonList[i])
-        self.setUpOneChildViewController(i)
-        
-    }
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        
-        let offsetX = scrollView.contentOffset.x
-        let leftIndex = Int(offsetX / kDJScreenW)
-        let rightIndex = Int(leftIndex + 1)
-        
-        let leftButton = self.titleButtonList[leftIndex]
-        var rightButton: UIButton?
-        if rightIndex < self.titleButtonList.count {
-            rightButton = self.titleButtonList[rightIndex]
-        }
-        
-        let scaleR = offsetX / kDJScreenW - CGFloat(leftIndex)
-        
-        let scaleL = 1 - scaleR
-        
-        let fColor = selectTitleColor
-        let sColor = defaultTitleColor
-        
-        let rightColor = gradientRGBColor(fColor, secondColor: sColor, scale: scaleR)
-        let leftColor = gradientRGBColor(fColor, secondColor: sColor, scale: scaleL)
-        
-        leftButton.setTitleColor(leftColor, forState: .Normal)
-        rightButton?.setTitleColor(rightColor, forState: .Normal)
-        
-        
-    }
     
     func gradientRGBColor(firstColor: UIColor, secondColor: UIColor, scale: CGFloat) -> UIColor {
         
@@ -264,6 +230,92 @@ extension DJTitleNavigationBarViewController: UIScrollViewDelegate {
         let final_B = (l_B - r_B) * scale + r_B
         
         return UIColor(red: final_R, green: final_G, blue: final_B, alpha: 1)
+    }
+    
+    
+}
+
+
+// MARK: -
+extension DJTitleNavigationBarViewController: UIScrollViewDelegate {
+    
+    // MARK: - Delegate
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        
+        if scrollView.tag == 2 {
+            
+            let i: Int = Int((self.contentScrollView?.contentOffset.x)! / kDJScreenW)
+            self.selectedTitleBtn(self.titleButtonList[i])
+            self.setUpOneChildViewController(i)
+            
+        }
+        else if scrollView.tag == 1 {
+            
+            print("titleScrollView.DidEndDecelerating")
+            let x = scrollView.contentOffset.x + kDJScreenW/2.0
+            
+            if x < kDJSpace {
+                
+                click(titleButtonList[0])
+                
+            }
+            else if x > kDJSpace + CGFloat(titleButtonList.count) * titleW {
+                
+                click(titleButtonList[titleButtonList.count-1])
+                
+            }
+            else {
+                
+                let delta = ceil((x - kDJSpace) / titleW)
+                click(titleButtonList[Int(delta-1)])
+                
+            }
+        }
+        
+    }
+    
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        if scrollView.tag == 2 {
+            
+            let offsetX = scrollView.contentOffset.x
+            let leftIndex = Int(offsetX / kDJScreenW)
+            let rightIndex = Int(leftIndex + 1)
+            
+            let leftButton = self.titleButtonList[leftIndex]
+            var rightButton: UIButton?
+            if rightIndex < self.titleButtonList.count {
+                rightButton = self.titleButtonList[rightIndex]
+            }
+            
+            let scaleR = offsetX / kDJScreenW - CGFloat(leftIndex)
+            
+            let scaleL = 1 - scaleR
+            
+            let fColor = selectTitleColor
+            let sColor = defaultTitleColor
+            
+            let rightColor = gradientRGBColor(fColor, secondColor: sColor, scale: scaleR)
+            let leftColor = gradientRGBColor(fColor, secondColor: sColor, scale: scaleL)
+            
+            leftButton.setTitleColor(leftColor, forState: .Normal)
+            rightButton?.setTitleColor(rightColor, forState: .Normal)
+        
+        }
+        
+        
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        if scrollView.tag == 1 {
+            
+            
+            
+        }
+     
+        
     }
     
     
