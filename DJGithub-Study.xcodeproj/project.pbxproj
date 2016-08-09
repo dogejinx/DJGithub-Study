@@ -20,7 +20,6 @@
 		76372BEE1D48B73700F99E9C /* LTMorphingLabelDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76372BEC1D48B73700F99E9C /* LTMorphingLabelDemoViewController.swift */; };
 		76372BEF1D48B73700F99E9C /* LTMorphingLabelDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76372BED1D48B73700F99E9C /* LTMorphingLabelDemoViewController.xib */; };
 		764BA8C81D5066A70045A80B /* DJWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764BA8C71D5066A70045A80B /* DJWebViewController.swift */; };
-		764BA8CD1D50731D0045A80B /* DJTitleNavigationBarProViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764BA8CC1D50731D0045A80B /* DJTitleNavigationBarProViewController.swift */; };
 		76A480C81D4F32560025E64F /* DJTitleNavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A480C71D4F32560025E64F /* DJTitleNavigationBarViewController.swift */; };
 		76FAE1A21D520F21002661C0 /* DJTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FAE1A11D520F21002661C0 /* DJTitleButton.swift */; };
 		76FC83481D4B058200822EEF /* DJAutoshrinkMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC83471D4B058200822EEF /* DJAutoshrinkMorphingLabel.swift */; };
@@ -66,7 +65,6 @@
 		76372BEC1D48B73700F99E9C /* LTMorphingLabelDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTMorphingLabelDemoViewController.swift; sourceTree = "<group>"; };
 		76372BED1D48B73700F99E9C /* LTMorphingLabelDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTMorphingLabelDemoViewController.xib; sourceTree = "<group>"; };
 		764BA8C71D5066A70045A80B /* DJWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJWebViewController.swift; sourceTree = "<group>"; };
-		764BA8CC1D50731D0045A80B /* DJTitleNavigationBarProViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJTitleNavigationBarProViewController.swift; sourceTree = "<group>"; };
 		76A480C71D4F32560025E64F /* DJTitleNavigationBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJTitleNavigationBarViewController.swift; sourceTree = "<group>"; };
 		76FAE1A11D520F21002661C0 /* DJTitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJTitleButton.swift; sourceTree = "<group>"; };
 		76FC83471D4B058200822EEF /* DJAutoshrinkMorphingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJAutoshrinkMorphingLabel.swift; sourceTree = "<group>"; };
@@ -153,10 +151,9 @@
 			children = (
 				76372BBE1D48529500F99E9C /* AppDelegate.swift */,
 				76372BC01D48529500F99E9C /* ViewController.swift */,
-				7618C0391D588CC1009EC1FA /* DJAdMobDemo */,
-				764BA8CB1D5072D40045A80B /* DJTitleNavigationBarDemoPro */,
-				76A480C91D4F325D0025E64F /* DJTitleNavigationBarDemo */,
 				76FC83491D4B089700822EEF /* LTMorphingLabelDemo */,
+				76A480C91D4F325D0025E64F /* DJTitleNavigationBarDemo */,
+				7618C0391D588CC1009EC1FA /* DJAdMobDemo */,
 				76372BC21D48529500F99E9C /* Main.storyboard */,
 				76372BC51D48529500F99E9C /* Assets.xcassets */,
 				76372BC71D48529500F99E9C /* LaunchScreen.storyboard */,
@@ -181,14 +178,6 @@
 				76372BE01D48529500F99E9C /* Info.plist */,
 			);
 			path = "DJGithub-StudyUITests";
-			sourceTree = "<group>";
-		};
-		764BA8CB1D5072D40045A80B /* DJTitleNavigationBarDemoPro */ = {
-			isa = PBXGroup;
-			children = (
-				764BA8CC1D50731D0045A80B /* DJTitleNavigationBarProViewController.swift */,
-			);
-			name = DJTitleNavigationBarDemoPro;
 			sourceTree = "<group>";
 		};
 		76A480C91D4F325D0025E64F /* DJTitleNavigationBarDemo */ = {
@@ -401,7 +390,6 @@
 				76A480C81D4F32560025E64F /* DJTitleNavigationBarViewController.swift in Sources */,
 				76FAE1A21D520F21002661C0 /* DJTitleButton.swift in Sources */,
 				7618C0371D588CBA009EC1FA /* DJAdMobViewController.swift in Sources */,
-				764BA8CD1D50731D0045A80B /* DJTitleNavigationBarProViewController.swift in Sources */,
 				764BA8C81D5066A70045A80B /* DJWebViewController.swift in Sources */,
 				76372BEE1D48B73700F99E9C /* LTMorphingLabelDemoViewController.swift in Sources */,
 				76372BBF1D48529500F99E9C /* AppDelegate.swift in Sources */,
@@ -480,6 +468,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -525,6 +514,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -547,7 +537,9 @@
 			baseConfigurationReference = C06E1B0738223DB6E2E74DAA /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "DJGithub-Study/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "XianLin.DJGithub-Study";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -559,7 +551,9 @@
 			baseConfigurationReference = 4A4D7B24407742360BB7CC7F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "DJGithub-Study/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "XianLin.DJGithub-Study";
 				PRODUCT_NAME = "$(TARGET_NAME)";

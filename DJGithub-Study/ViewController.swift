@@ -12,8 +12,8 @@ let kCellIdentifier = "UITableViewCell"
 
 class ViewController: UITableViewController {
     
-    var demoTitleList: [String] = ["LTMorphingLabel", "DJTitleNavigationBarDemo", "DJTitleNavigationBarDemoPro"]
-    var demoViewControllerList: [String] = ["LTMorphingLabelDemoViewController", "DJTitleNavigationBarViewController", "DJTitleNavigationBarProViewController"]
+    var demoTitleList: [String] = ["LTMorphingLabel", "DJTitleNavigationBarDemo", "DJAdMobDemo"]
+    var demoViewControllerList: [String] = ["LTMorphingLabelDemoViewController", "DJTitleNavigationBarViewController", "DJAdMobViewController"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,7 @@ extension ViewController {
         else if indexPath.row == 1 {
             
             let vc = DJTitleNavigationBarViewController()
-            vc.webPageList = [WebPage(title: "2016.01", url: "https://www.bilibili.com")/*, WebPage(title: "2016.02", url: "https://www.zhihu.com"), WebPage(title: "2016.03", url: "https://www.weibo.com")*/]
+            vc.webPageList = [WebPage(title: "2016.01", url: "https://www.bilibili.com"), WebPage(title: "2016.02", url: "https://www.zhihu.com"), WebPage(title: "2016.03", url: "https://www.weibo.com")]
             
             self.navigationController?.pushViewController(vc, animated: true)
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -45,9 +45,7 @@ extension ViewController {
         }
         else {
             
-            let vc = DJTitleNavigationBarProViewController()
-//            vc.webPageList = [WebPage(title: "2016.01", url: "https://www.bilibili.com"), WebPage(title: "2016.02", url: "https://www.zhihu.com"), WebPage(title: "2016.03", url: "http://www.dogejinx.com")]
-            
+            let vc = DJAdMobViewController()
             self.navigationController?.pushViewController(vc, animated: true)
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
             
