@@ -32,6 +32,7 @@ class DJTitleNavigationBarViewController: UIViewController {
     var titleH: CGFloat = 36.0
     var titleW: CGFloat = 100.0
     let navBarH: CGFloat = 64
+    let kContentSpace: CGFloat = 20
     let kDJScreenW = UIScreen.mainScreen().bounds.width
     let kDJScreenH = UIScreen.mainScreen().bounds.height
     var kDJSpace: CGFloat {
@@ -41,7 +42,7 @@ class DJTitleNavigationBarViewController: UIViewController {
     }
     var defaultTitleColor = UIColor(red: 102/255.0, green: 102/255.0, blue: 102/255.0, alpha: 1)
     var selectTitleColor = UIColor(red: 89/255.0, green: 83/255.0, blue: 193/255.0, alpha: 1)
-    
+    var showTriangle = true
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -68,11 +69,12 @@ class DJTitleNavigationBarViewController: UIViewController {
         
         self.setupTitleScrollView()
         self.setupContentScrollView()
+        self.setupTriangle()
         self.addChildViewController()
         self.setupTitle()
         
         self.automaticallyAdjustsScrollViewInsets = false
-        self.contentScrollView?.contentSize = CGSizeMake(CGFloat(self.childViewControllers.count) * kDJScreenW, 0)
+        self.contentScrollView?.contentSize = CGSizeMake(CGFloat(self.childViewControllers.count) * (kDJScreenW + kContentSpace), 0)
         self.contentScrollView?.pagingEnabled = true
         self.contentScrollView?.showsHorizontalScrollIndicator = false
         self.contentScrollView?.delegate = self
@@ -95,12 +97,24 @@ class DJTitleNavigationBarViewController: UIViewController {
     func setupContentScrollView() {
         
         let y = CGRectGetMaxY((titleScrollView?.frame)!)
-        let rect = CGRectMake(0, y, kDJScreenW, kDJScreenH - y)
+        let rect = CGRectMake(0, y, kDJScreenW + kContentSpace, kDJScreenH - y)
         
         contentScrollView = UIScrollView(frame: rect)
         contentScrollView?.tag = 2
-        contentScrollView?.backgroundColor = UIColor.whiteColor()
+        contentScrollView?.backgroundColor = UIColor.lightGrayColor()
         self.view.addSubview(contentScrollView!)
+        
+    }
+    
+    func setupTriangle() {
+        
+        if showTriangle {
+            let rect = CGRectMake(0, 0, 20, 10)
+            let triangle = UIImageView(frame: rect)
+            triangle.image = UIImage(named: "icon_triangle_down_white")
+            triangle.center = CGPointMake(kDJScreenW/2, CGRectGetMaxY((titleScrollView?.frame)!) + rect.height/2)
+            self.view.addSubview(triangle)
+        }
         
     }
     
@@ -164,7 +178,7 @@ class DJTitleNavigationBarViewController: UIViewController {
         self.selectedTitleBtn(btn)
         
         let i = btn.tag
-        let x = CGFloat(i) * kDJScreenW
+        let x = CGFloat(i) * (kDJScreenW + kContentSpace)
         
         self.setUpOneChildViewController(i)
         self.contentScrollView?.contentOffset = CGPointMake(x, 0)
@@ -184,7 +198,7 @@ class DJTitleNavigationBarViewController: UIViewController {
     
     func setUpOneChildViewController(i: Int) {
         
-        let x = CGFloat(i) * kDJScreenW
+        let x = CGFloat(i) * (kDJScreenW + kContentSpace)
         let vc = self.childViewControllers[i]
         
         if vc.view.superview != nil {
@@ -244,7 +258,7 @@ extension DJTitleNavigationBarViewController: UIScrollViewDelegate {
         
         if scrollView.tag == 2 {
             
-            let i: Int = Int((self.contentScrollView?.contentOffset.x)! / kDJScreenW)
+            let i: Int = Int((self.contentScrollView?.contentOffset.x)! / (kDJScreenW + kContentSpace))
             self.selectedTitleBtn(self.titleButtonList[i])
             self.setUpOneChildViewController(i)
             
@@ -259,7 +273,7 @@ extension DJTitleNavigationBarViewController: UIScrollViewDelegate {
         if scrollView.tag == 2 {
             
             let offsetX = scrollView.contentOffset.x
-            let leftIndex = Int(offsetX / kDJScreenW)
+            let leftIndex = Int(offsetX / (kDJScreenW + kContentSpace))
             let rightIndex = Int(leftIndex + 1)
             
             let leftButton = self.titleButtonList[leftIndex]
@@ -268,7 +282,7 @@ extension DJTitleNavigationBarViewController: UIScrollViewDelegate {
                 rightButton = self.titleButtonList[rightIndex]
             }
             
-            let scaleR = offsetX / kDJScreenW - CGFloat(leftIndex)
+            let scaleR = offsetX / (kDJScreenW + kContentSpace) - CGFloat(leftIndex)
             
             let scaleL = 1 - scaleR
             
