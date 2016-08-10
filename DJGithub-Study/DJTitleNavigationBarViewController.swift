@@ -249,28 +249,7 @@ extension DJTitleNavigationBarViewController: UIScrollViewDelegate {
             self.setUpOneChildViewController(i)
             
         }
-        else if scrollView.tag == 1 {
-            
-            print("titleScrollView.DidEndDecelerating")
-            let x = scrollView.contentOffset.x + kDJScreenW/2.0
-            
-            if x < kDJSpace {
-                
-                click(titleButtonList[0])
-                
-            }
-            else if x > kDJSpace + CGFloat(titleButtonList.count) * titleW {
-                
-                click(titleButtonList[titleButtonList.count-1])
-                
-            }
-            else {
-                
-                let delta = ceil((x - kDJSpace) / titleW)
-                click(titleButtonList[Int(delta-1)])
-                
-            }
-        }
+        
         
     }
     
@@ -307,15 +286,34 @@ extension DJTitleNavigationBarViewController: UIScrollViewDelegate {
         
     }
     
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    
+    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
         if scrollView.tag == 1 {
             
+            print("titleScrollView.DidEndDecelerating")
+            let x = scrollView.contentOffset.x + kDJScreenW/2.0
             
-            
+            if x < kDJSpace {
+                
+                click(titleButtonList[0])
+                targetContentOffset.memory.x = 0
+                targetContentOffset.memory.y = 0
+            }
+            else if x > kDJSpace + CGFloat(titleButtonList.count) * titleW {
+                
+                click(titleButtonList[titleButtonList.count-1])
+                targetContentOffset.memory.x = scrollView.contentSize.width - kDJScreenW
+                targetContentOffset.memory.y = 0
+            }
+            else {
+                
+                let delta = ceil((x - kDJSpace) / titleW)
+                click(titleButtonList[Int(delta-1)])
+                targetContentOffset.memory.x = (delta-1) * titleW
+                targetContentOffset.memory.y = 0
+            }
         }
-     
-        
     }
     
     
