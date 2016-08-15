@@ -10,6 +10,4 @@ pod 'Kingfisher', '~> 2.3.1'
 pod 'AMapSearch', '~> 3.3.0'
 pod 'AMapLocation', '~> 1.2.2'
 pod 'LTMorphingLabel', '~> 0.2.0'
-pod 'Firebase/Core'
-pod 'Firebase/AdMob'
 

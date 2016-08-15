@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7618C0371D588CBA009EC1FA /* DJAdMobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7618C0351D588CBA009EC1FA /* DJAdMobViewController.swift */; };
-		7618C0381D588CBA009EC1FA /* DJAdMobViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7618C0361D588CBA009EC1FA /* DJAdMobViewController.xib */; };
-		7618C03B1D5899DC009EC1FA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7618C03A1D5899DC009EC1FA /* GoogleService-Info.plist */; };
 		76372BBF1D48529500F99E9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76372BBE1D48529500F99E9C /* AppDelegate.swift */; };
 		76372BC11D48529500F99E9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76372BC01D48529500F99E9C /* ViewController.swift */; };
 		76372BC41D48529500F99E9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76372BC21D48529500F99E9C /* Main.storyboard */; };
@@ -47,9 +44,6 @@
 /* Begin PBXFileReference section */
 		3088AFB60DE92B743849E591 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A4D7B24407742360BB7CC7F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		7618C0351D588CBA009EC1FA /* DJAdMobViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJAdMobViewController.swift; sourceTree = "<group>"; };
-		7618C0361D588CBA009EC1FA /* DJAdMobViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DJAdMobViewController.xib; sourceTree = "<group>"; };
-		7618C03A1D5899DC009EC1FA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		76372BBB1D48529400F99E9C /* DJGithub-Study.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DJGithub-Study.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76372BBE1D48529500F99E9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76372BC01D48529500F99E9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,16 +110,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7618C0391D588CC1009EC1FA /* DJAdMobDemo */ = {
-			isa = PBXGroup;
-			children = (
-				7618C03A1D5899DC009EC1FA /* GoogleService-Info.plist */,
-				7618C0351D588CBA009EC1FA /* DJAdMobViewController.swift */,
-				7618C0361D588CBA009EC1FA /* DJAdMobViewController.xib */,
-			);
-			name = DJAdMobDemo;
-			sourceTree = "<group>";
-		};
 		76372BB21D48529400F99E9C = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +139,6 @@
 				76372BC01D48529500F99E9C /* ViewController.swift */,
 				76FC83491D4B089700822EEF /* LTMorphingLabelDemo */,
 				76A480C91D4F325D0025E64F /* DJTitleNavigationBarDemo */,
-				7618C0391D588CC1009EC1FA /* DJAdMobDemo */,
 				76372BC21D48529500F99E9C /* Main.storyboard */,
 				76372BC51D48529500F99E9C /* Assets.xcassets */,
 				76372BC71D48529500F99E9C /* LaunchScreen.storyboard */,
@@ -313,9 +296,7 @@
 				76372BC91D48529500F99E9C /* LaunchScreen.storyboard in Resources */,
 				76372BC61D48529500F99E9C /* Assets.xcassets in Resources */,
 				76372BEF1D48B73700F99E9C /* LTMorphingLabelDemoViewController.xib in Resources */,
-				7618C0381D588CBA009EC1FA /* DJAdMobViewController.xib in Resources */,
 				76372BC41D48529500F99E9C /* Main.storyboard in Resources */,
-				7618C03B1D5899DC009EC1FA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,7 +374,6 @@
 				76A480C81D4F32560025E64F /* DJTitleNavigationBarViewController.swift in Sources */,
 				76FAE1A21D520F21002661C0 /* DJTitleButton.swift in Sources */,
 				7690EA511D59E12300DC3CF5 /* DJSpaceView.swift in Sources */,
-				7618C0371D588CBA009EC1FA /* DJAdMobViewController.swift in Sources */,
 				764BA8C81D5066A70045A80B /* DJWebViewController.swift in Sources */,
 				76372BEE1D48B73700F99E9C /* LTMorphingLabelDemoViewController.swift in Sources */,
 				76372BBF1D48529500F99E9C /* AppDelegate.swift in Sources */,

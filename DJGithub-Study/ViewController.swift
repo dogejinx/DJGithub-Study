@@ -12,8 +12,8 @@ let kCellIdentifier = "UITableViewCell"
 
 class ViewController: UITableViewController {
     
-    var demoTitleList: [String] = ["LTMorphingLabel", "DJTitleNavigationBarDemo", "DJAdMobDemo"]
-    var demoViewControllerList: [String] = ["LTMorphingLabelDemoViewController", "DJTitleNavigationBarViewController", "DJAdMobViewController"]
+    var demoTitleList: [String] = ["LTMorphingLabel", "DJTitleNavigationBarDemo"]
+    var demoViewControllerList: [String] = ["LTMorphingLabelDemoViewController", "DJTitleNavigationBarViewController"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +39,6 @@ extension ViewController {
             let vc = DJTitleNavigationBarViewController()
             vc.webPageList = [WebPage(title: "2016.01", url: "https://www.bilibili.com"), WebPage(title: "2016.02", url: "https://www.zhihu.com"), WebPage(title: "2016.03", url: "https://www.weibo.com"), WebPage(title: "2016.04", url: "https://www.baidu.com"), WebPage(title: "2016.05", url: "https://www.alipay.com"), WebPage(title: "2016.06", url: "https://www.jd.com")]
             
-            self.navigationController?.pushViewController(vc, animated: true)
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
-            
-        }
-        else {
-            
-            let vc = DJAdMobViewController()
             self.navigationController?.pushViewController(vc, animated: true)
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
             
