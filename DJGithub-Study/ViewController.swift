@@ -12,7 +12,7 @@ let kCellIdentifier = "UITableViewCell"
 
 class ViewController: UITableViewController {
     
-    var demoTitleList: [String] = ["LTMorphingLabel", "DJTitleNavigationBarDemo", "DIYCollectionViewDemo"]
+    var demoTitleList: [String] = ["LTMorphingLabel", "DJTitleNavigationBarDemo", "DIYCollectionViewDemo", "DJGraientCircleViewDemo"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +45,12 @@ extension ViewController {
         else if indexPath.row == 2 {
             
             let vc = MedalViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+        else if indexPath.row == 3 {
+            
+            let vc = DJGradientCircleViewController()
             self.navigationController?.pushViewController(vc, animated: true)
             
         }

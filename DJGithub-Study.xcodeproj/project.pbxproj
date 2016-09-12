@@ -18,6 +18,9 @@
 		76372BEF1D48B73700F99E9C /* LTMorphingLabelDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76372BED1D48B73700F99E9C /* LTMorphingLabelDemoViewController.xib */; };
 		764BA8C81D5066A70045A80B /* DJWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764BA8C71D5066A70045A80B /* DJWebViewController.swift */; };
 		7690EA511D59E12300DC3CF5 /* DJSpaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7690EA501D59E12300DC3CF5 /* DJSpaceView.swift */; };
+		769A367A1D865A3A0003DEF6 /* DJCustomCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A36791D865A3A0003DEF6 /* DJCustomCircleView.swift */; };
+		769A367D1D86A3600003DEF6 /* DJGradientCircleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A367B1D86A3600003DEF6 /* DJGradientCircleViewController.swift */; };
+		769A367E1D86A3600003DEF6 /* DJGradientCircleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 769A367C1D86A3600003DEF6 /* DJGradientCircleViewController.xib */; };
 		76A480C81D4F32560025E64F /* DJTitleNavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A480C71D4F32560025E64F /* DJTitleNavigationBarViewController.swift */; };
 		76E3D5EF1D79956200B73441 /* MedalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3D5E61D79956200B73441 /* MedalViewController.swift */; };
 		76E3D5F01D79956200B73441 /* MedalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76E3D5E71D79956200B73441 /* MedalViewController.xib */; };
@@ -70,6 +73,9 @@
 		76372BED1D48B73700F99E9C /* LTMorphingLabelDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTMorphingLabelDemoViewController.xib; sourceTree = "<group>"; };
 		764BA8C71D5066A70045A80B /* DJWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJWebViewController.swift; sourceTree = "<group>"; };
 		7690EA501D59E12300DC3CF5 /* DJSpaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJSpaceView.swift; sourceTree = "<group>"; };
+		769A36791D865A3A0003DEF6 /* DJCustomCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJCustomCircleView.swift; sourceTree = "<group>"; };
+		769A367B1D86A3600003DEF6 /* DJGradientCircleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJGradientCircleViewController.swift; sourceTree = "<group>"; };
+		769A367C1D86A3600003DEF6 /* DJGradientCircleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DJGradientCircleViewController.xib; sourceTree = "<group>"; };
 		76A480C71D4F32560025E64F /* DJTitleNavigationBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJTitleNavigationBarViewController.swift; sourceTree = "<group>"; };
 		76E3D5E61D79956200B73441 /* MedalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedalViewController.swift; sourceTree = "<group>"; };
 		76E3D5E71D79956200B73441 /* MedalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MedalViewController.xib; sourceTree = "<group>"; };
@@ -158,6 +164,7 @@
 				76FC83491D4B089700822EEF /* LTMorphingLabelDemo */,
 				76A480C91D4F325D0025E64F /* DJTitleNavigationBarDemo */,
 				76E3D5F81D79956A00B73441 /* DIYCollectionViewDemo */,
+				769A36781D8659EA0003DEF6 /* CustomCircleDemo */,
 				76372BC21D48529500F99E9C /* Main.storyboard */,
 				76372BC51D48529500F99E9C /* Assets.xcassets */,
 				76372BC71D48529500F99E9C /* LaunchScreen.storyboard */,
@@ -182,6 +189,16 @@
 				76372BE01D48529500F99E9C /* Info.plist */,
 			);
 			path = "DJGithub-StudyUITests";
+			sourceTree = "<group>";
+		};
+		769A36781D8659EA0003DEF6 /* CustomCircleDemo */ = {
+			isa = PBXGroup;
+			children = (
+				769A367B1D86A3600003DEF6 /* DJGradientCircleViewController.swift */,
+				769A367C1D86A3600003DEF6 /* DJGradientCircleViewController.xib */,
+				769A36791D865A3A0003DEF6 /* DJCustomCircleView.swift */,
+			);
+			name = CustomCircleDemo;
 			sourceTree = "<group>";
 		};
 		76A480C91D4F325D0025E64F /* DJTitleNavigationBarDemo */ = {
@@ -328,6 +345,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				769A367E1D86A3600003DEF6 /* DJGradientCircleViewController.xib in Resources */,
 				76E3D5F31D79956200B73441 /* MedalCollectionViewCell.xib in Resources */,
 				76372BC91D48529500F99E9C /* LaunchScreen.storyboard in Resources */,
 				76E3D5F71D79956200B73441 /* MedalFooterCollectionReusableView.xib in Resources */,
@@ -412,11 +430,13 @@
 				76372BC11D48529500F99E9C /* ViewController.swift in Sources */,
 				76A480C81D4F32560025E64F /* DJTitleNavigationBarViewController.swift in Sources */,
 				76E3D5F11D79956200B73441 /* MedalFlowLayout.swift in Sources */,
+				769A367D1D86A3600003DEF6 /* DJGradientCircleViewController.swift in Sources */,
 				76FAE1A21D520F21002661C0 /* DJTitleButton.swift in Sources */,
 				7690EA511D59E12300DC3CF5 /* DJSpaceView.swift in Sources */,
 				76E3D5EF1D79956200B73441 /* MedalViewController.swift in Sources */,
 				764BA8C81D5066A70045A80B /* DJWebViewController.swift in Sources */,
 				76E3D5F41D79956200B73441 /* MedalHeaderCollectionReusableView.swift in Sources */,
+				769A367A1D865A3A0003DEF6 /* DJCustomCircleView.swift in Sources */,
 				76E3D5F61D79956200B73441 /* MedalFooterCollectionReusableView.swift in Sources */,
 				76E3D5F21D79956200B73441 /* MedalCollectionViewCell.swift in Sources */,
 				76372BEE1D48B73700F99E9C /* LTMorphingLabelDemoViewController.swift in Sources */,
